@@ -15,6 +15,7 @@
 #include "arrayDireccion.h"
 #include "arrayFechaNacimiento.h"
 #include "arrayZona.h"
+#include "informes.h"
 #define LEN_CENSISTAS 2000
 #define LEN_ZONAS 2000
 #define LEN_DIRECCIONES 2000
@@ -48,6 +49,7 @@ int main(void) {
 	int auxEstadoCensista = 3;
 	int idModificacion;
 	int indice;
+	int informesOpcion;
 
 
 	if (iniciarCensista(censistas, LEN_CENSISTAS) == 0 && iniciarDireccion(direcciones, LEN_DIRECCIONES) == 0 &&
@@ -65,7 +67,8 @@ int main(void) {
 												"8. Mostrar Zonas \n"
 												"9. Carga Forzada Censista: \n"
 												"10. Carga Forzada Zonas: \n"
-												"11. Salir. \n"
+												"11. Informes: \n"
+												"12. Salir. \n"
 												"\nElija una opcion: ",
 
 										"\n Error, opcion invalida", 1, 11, 2) == 0){
@@ -220,12 +223,39 @@ int main(void) {
 					break;
 
 				case 11:
+					do {
+						if(utn_getNumero (&informesOpcion,
+											"\n*****************************Menu Principal*****************************\n\n"
+																		"1. primer informe \n"
+																		"2. segundo infotrme \n"
+																		"3. tercer informe \n"
+																		"4. Salir. \n"
+																		"\nElija una opcion: ",
+
+																"\n Error, opcion invalida", 1, 3, 2) == 0){
+										switch(informesOpcion){
+										case 1:
+											cantidadCensistasActivoPendiente (censistas, LEN_CENSISTAS, zonas, LEN_ZONAS );
+											break;
+										case 2:
+											mostrarCensistasAvellaneda (censistas, LEN_CENSISTAS, zonas, LEN_ZONAS );
+											break;
+										case 3:
+											cantidadLocalidadMasAusentes (zonas, LEN_ZONAS);
+											break;
+										}
+						}
+
+					} while (informesOpcion != 4);
+					break;
+
+				case 12:
 					printf("talueguito. \n");
 					break;
 				}
 			}
 
-		} while (opcionMenu !=11);
+		} while (opcionMenu !=12);
 	}
 
 

@@ -18,11 +18,11 @@ static const char ESTADO_CENSISTA[4][51] = {" ", "Activo", "Inactivo", "Liberado
 
 
 /**
- * @brief
+ * @brief verifica que haya lugar vacío para iniciar la lista y su validez
  *
- * @param list
- * @param len
- * @return
+ * @param list lkista a iniciar
+ * @param len largo de la lista
+ * @return devuelve 0 si salio ok o -1 en caso de error
  */
 
 int iniciarCensista(Censista* list, int len) {
@@ -37,15 +37,15 @@ int iniciarCensista(Censista* list, int len) {
 	return retorno;
 }
 
-//---------
+
 
 /**
- * @brief
+ * @brief obtiene los datos del censista
  *
- * @param nombre
- * @param apellido
- * @param edad
- * @return
+ * @param nombre recibe el nombre del censista
+ * @param apellido recibe el apellido del censista
+ * @param edad recibe la edad del censista
+ * @return devuelve 0 si salio ok o -1 en caso de error
  */
 int getCensista(char* nombre, char* apellido, int* edad)
 {
@@ -65,23 +65,23 @@ int getCensista(char* nombre, char* apellido, int* edad)
 
 
 /**
- * @brief
+ * @brief agrega a la lista los datos recolectados del censista
  *
- * @param censistas
- * @param len
- * @param idCensista
- * @param nombre
- * @param apellido
- * @param edad
- * @param auxDia
- * @param auxMes
- * @param auxAnio
- * @param auxCallePrin
- * @param auxAltura
- * @param auxPrimerEntreC
- * @param auxSegundaEntreC
- * @param estadoCensista
- * @return
+ * @param censistas lista que recibe
+ * @param len largo de lista
+ * @param idCensista id a asignar
+ * @param nombre nombre del censista
+ * @param apellido apellidod el censista
+ * @param edad edad del censista
+ * @param auxDia dia de nacimiento del cennsista
+ * @param auxMes mes de nacimiento del censista
+ * @param auxAnio anio del censista
+ * @param auxCallePrin calle sobre la que vive
+ * @param auxAltura altura del domicilio
+ * @param auxPrimerEntreC primer entre calle del domicilio
+ * @param auxSegundaEntreC segunda entre calle del domicilio
+ * @param estadoCensista estado del censista
+ * @return devuelve 0 si salio ok o -1 en caso de error
  */
 int addCensista(Censista* censistas, int len, int idCensista, char nombre[],
 		char apellido[], int edad, int auxDia, int auxMes, int auxAnio, char auxCallePrin[],
@@ -113,12 +113,12 @@ int addCensista(Censista* censistas, int len, int idCensista, char nombre[],
 
 //--
 /**
- * @brief
+ * @brief busca el indice en el que se encuentra el censista pasado por id
  *
- * @param censistas
- * @param len
- * @param id
- * @return
+ * @param censistas lista a analizar
+ * @param len largo de la lista
+ * @param id parametro id de busqueda
+ * @return devuelve 0 si salio ok o -1 en caso de error
  */
 int encontrarCensistaPorId(Censista* censistas, int len,int id) {
 	int retorno = -1;
@@ -137,11 +137,11 @@ int encontrarCensistaPorId(Censista* censistas, int len,int id) {
 
 //--
 /**
- * @brief
+ * @brief imprime los censistas
  *
- * @param censistas
- * @param len
- * @return
+ * @param censistas lista a analizar
+ * @param len largo de lista
+ * @return devuelve 0 si salio ok o -1 en caso de error
  */
 int imprimirCensistas(Censista* censistas, int len) {
 	int retorno = -1;
@@ -160,11 +160,11 @@ int imprimirCensistas(Censista* censistas, int len) {
 
 //--
 /**
- * @brief
+ * @brief busca la primer posicion vacia del array
  *
- * @param censistas
- * @param len
- * @return
+ * @param censistas lista a analizar
+ * @param len largo de la lista
+ * @return devuelve 0 si salio ok o -1 en caso de error
  */
 int buscarIndexCensistaPorIsEmpty(Censista* censistas, int len)
 {
@@ -188,11 +188,11 @@ int buscarIndexCensistaPorIsEmpty(Censista* censistas, int len)
 //--
 
 /**
- * @brief
+ * @brief modifica el nombre del censista
  *
- * @param censistas
- * @param indice
- * @return
+ * @param censistas lista que recibe
+ * @param indice indice a guardar el nuevo dato
+ * @return devuelve 0 si salio ok o -1 en caso de error
  */
 int modificarNombre(Censista* censistas, int indice)
 {
@@ -211,7 +211,7 @@ int modificarNombre(Censista* censistas, int indice)
 
 //--
 /**
- * @brief
+ * @brief modifica el apellido
  *
  * @param censistas
  * @param indice
@@ -365,5 +365,6 @@ int hayCensista(Censista* censistas, int len) {
 	}
 	return retorno;
 }
+
 
 #endif /* ARRAYCENSISTA_C_ */
